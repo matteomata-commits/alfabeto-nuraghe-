@@ -37,14 +37,14 @@
 <!-- HUB -->
 <circle cx="340" cy="340" r="14" class="symbol"/>
 
-<!-- NODI (stesso sistema del Nuragico) -->
+<!-- NODI -->
 <circle class="symbol" cx="340" cy="180" r="10"/>
 <circle class="symbol" cx="190" cy="210" r="10"/>
 <circle class="symbol" cx="300" cy="100" r="10"/>
 <circle class="symbol" cx="440" cy="100" r="10"/>
 <circle class="symbol" cx="430" cy="260" r="10"/>
 
-<!-- connessioni -->
+<!-- CONNESSIONI -->
 <line x1="340" y1="340" x2="340" y2="180" stroke="#3D3A33"/>
 <line x1="340" y1="340" x2="190" y2="210" stroke="#3D3A33"/>
 <line x1="340" y1="340" x2="300" y2="100" stroke="#3D3A33"/>
@@ -69,7 +69,6 @@
   stroke:#1C1A16;
   stroke-width:3;
 }
-.dot{fill:#1C1A16;}
 </style>
 
 <!-- linee verso centro -->
@@ -79,7 +78,7 @@
 <line x1="430" y1="260" x2="340" y2="200" stroke="#3D3A33"/>
 <line x1="340" y1="200" x2="190" y2="210" stroke="#3D3A33"/>
 
-<!-- muro -->
+<!-- MURO -->
 <path d="
 M 190 210
 C 210 140, 250 110, 300 100
@@ -89,13 +88,13 @@ C 380 300, 300 310, 190 210
 Z"
 class="wall"/>
 
-<!-- SLOT A -->
+<!-- ===================== SLOT A ===================== -->
 <g onclick="posiziona('A')">
   <circle cx="340" cy="200" r="70" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="340" y="148" text-anchor="middle">A</text>
 
-  <g id="glyph-A">
-    <path class="rune" d="M -10 -10 L 10 10 M 10 -10 L -10 10"/>
+  <g id="glyph-A" transform="translate(340,200)">
+    <path class="rune" d="M -12 -12 L 12 12 M 12 -12 L -12 12"/>
   </g>
 </g>
 
@@ -104,7 +103,7 @@ class="wall"/>
   <circle cx="190" cy="210" r="52" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="190" y="168" text-anchor="middle">B</text>
 
-  <g id="glyph-B">
+  <g id="glyph-B" transform="translate(190,210)">
     <circle class="rune" cx="0" cy="0" r="10"/>
   </g>
 </g>
@@ -114,7 +113,7 @@ class="wall"/>
   <circle cx="300" cy="100" r="42" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="300" y="66" text-anchor="middle">C</text>
 
-  <g id="glyph-C">
+  <g id="glyph-C" transform="translate(300,100)">
     <path class="rune" d="M -12 0 L 12 0 M 0 -12 L 0 12"/>
   </g>
 </g>
@@ -124,7 +123,7 @@ class="wall"/>
   <circle cx="440" cy="100" r="48" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="440" y="62" text-anchor="middle">D</text>
 
-  <g id="glyph-D">
+  <g id="glyph-D" transform="translate(440,100)">
     <path class="rune" d="M -10 -10 L 10 0 L -10 10"/>
   </g>
 </g>
@@ -134,7 +133,7 @@ class="wall"/>
   <circle cx="430" cy="260" r="40" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="430" y="228" text-anchor="middle">E</text>
 
-  <g id="glyph-E">
+  <g id="glyph-E" transform="translate(430,260)">
     <path class="rune" d="M -12 -8 C 0 0 0 0 -12 8"/>
   </g>
 </g>
