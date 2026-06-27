@@ -30,11 +30,55 @@
 .dot{fill:#1C1A16;}
 </style>
 
-<line x1="190" y1="210" x2="300" y2="120" stroke="#3D3A33"/>
-<line x1="300" y1="120" x2="340" y2="200" stroke="#3D3A33"/>
-<line x1="440" y1="100" x2="340" y2="200" stroke="#3D3A33"/>
-<line x1="430" y1="260" x2="340" y2="200" stroke="#3D3A33"/>
-<line x1="190" y1="210" x2="340" y2="200" stroke="#3D3A33"/>
+<!-- ===================== MURO DI CINTA NURAGICO ===================== -->
+
+<!-- ombra interna -->
+<path d="
+M 190 210
+C 210 140, 250 110, 300 100
+C 360 90, 410 95, 440 100
+C 470 140, 480 210, 430 260
+C 380 300, 300 310, 190 210
+Z
+"
+fill="none"
+stroke="#3D3A33"
+stroke-width="2"
+opacity="0.6"
+stroke-linejoin="round"
+/>
+
+<!-- muro principale -->
+<path d="
+M 190 210
+C 210 140, 250 110, 300 100
+C 360 90, 410 95, 440 100
+C 470 140, 480 210, 430 260
+C 380 300, 300 310, 190 210
+Z
+"
+fill="none"
+stroke="#1C1A16"
+stroke-width="6"
+stroke-linejoin="round"
+stroke-linecap="round"
+/>
+
+<!-- texture archeologica -->
+<path d="
+M 190 210
+C 210 140, 250 110, 300 100
+C 360 90, 410 95, 440 100
+C 470 140, 480 210, 430 260
+C 380 300, 300 310, 190 210
+Z
+"
+fill="none"
+stroke="#000"
+stroke-width="1"
+stroke-dasharray="2 8"
+opacity="0.15"
+/>
 
 <!-- SLOT A -->
 <g onclick="posiziona('A')">
