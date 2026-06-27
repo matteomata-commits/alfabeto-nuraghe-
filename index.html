@@ -7,7 +7,7 @@
   margin:0 auto;
 ">
 
-<!-- ===================== MAYA (TONY VERSIONE) ===================== -->
+<!-- ===================== MAYA ===================== -->
 <svg width="360" height="360" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
 
 <style>
@@ -22,29 +22,37 @@
 .stone{fill:none;stroke:#1C1A16;stroke-width:12;opacity:0.22;}
 .inner{fill:none;stroke:#3D3A33;stroke-width:2;opacity:0.35;stroke-dasharray:4 10;}
 .crack{fill:none;stroke:#2b2622;stroke-width:2;opacity:0.4;}
+.symbol{fill:none;stroke:#1C1A16;stroke-width:4;opacity:0.75;}
 </style>
 
-<!-- CERCHIO MAYA PIÙ “ANTICO INCISO” -->
 <circle cx="340" cy="340" r="250" class="stone"/>
 <circle cx="340" cy="340" r="210" class="inner"/>
 
-<!-- CREPE PIÙ NATURALI (STILE PIETRA VERA) -->
+<!-- crepe -->
 <path class="crack" d="M340 80 L360 150 L330 220 L350 310 L320 410 L360 520"/>
 <path class="crack" d="M150 340 L240 300 L320 350 L420 320 L520 360"/>
 <path class="crack" d="M240 180 L280 240 L260 320 L310 380"/>
 
+<!-- 9 simboli distribuiti -->
+<circle class="symbol" cx="340" cy="180" r="10"/>
+<path class="symbol" d="M340 210 l15 25 l-30 0 Z"/>
+<circle class="symbol" cx="440" cy="220" r="8"/>
+<circle class="symbol" cx="500" cy="340" r="12"/>
+<path class="symbol" d="M420 450 l20 0 l-10 20 Z"/>
+<circle class="symbol" cx="340" cy="500" r="9"/>
+<path class="symbol" d="M240 450 l18 -18 l-18 -18 l-18 18 Z"/>
+<circle class="symbol" cx="180" cy="340" r="7"/>
+<path class="symbol" d="M240 220 l20 10 l-10 20 Z"/>
+
 </svg>
 
 <!-- ===================== NURAGICO ===================== -->
-<svg width="360" height="360" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<svg width="360" height="360"
+     viewBox="0 0 680 420"
+     preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg">
 
 <style>
-.rune{
-  fill:none;
-  stroke:#1C1A16;
-  stroke-width:6;
-}
-
 .wall{
   fill:none;
   stroke:#1C1A16;
@@ -54,7 +62,6 @@
 }
 </style>
 
-<!-- CINTA NURAGICA SCURA -->
 <path class="wall" d="
 M 190 210
 C 210 140, 250 110, 300 100
@@ -68,31 +75,31 @@ Z
 <g onclick="posiziona('A')">
   <circle cx="340" cy="200" r="70" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="340" y="148" text-anchor="middle">A</text>
-  <g id="glyph-A" transform="translate(340,200)"></g>
+  <g id="glyph-A"></g>
 </g>
 
 <g onclick="posiziona('B')">
   <circle cx="190" cy="210" r="52" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="190" y="168" text-anchor="middle">B</text>
-  <g id="glyph-B" transform="translate(190,210)"></g>
+  <g id="glyph-B"></g>
 </g>
 
 <g onclick="posiziona('C')">
   <circle cx="300" cy="100" r="42" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="300" y="66" text-anchor="middle">C</text>
-  <g id="glyph-C" transform="translate(300,100)"></g>
+  <g id="glyph-C"></g>
 </g>
 
 <g onclick="posiziona('D')">
   <circle cx="440" cy="100" r="48" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="440" y="62" text-anchor="middle">D</text>
-  <g id="glyph-D" transform="translate(440,100)"></g>
+  <g id="glyph-D"></g>
 </g>
 
 <g onclick="posiziona('E')">
   <circle cx="430" cy="260" r="40" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="430" y="228" text-anchor="middle">E</text>
-  <g id="glyph-E" transform="translate(430,260)"></g>
+  <g id="glyph-E"></g>
 </g>
 
 </svg>
