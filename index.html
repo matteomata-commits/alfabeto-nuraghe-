@@ -1,25 +1,16 @@
-<!-- ===================== CONTAINER SUPERIORE (FIX AFFIANCAMENTO) ===================== -->
 <div style="
   display:flex;
-  flex-direction:row;
   justify-content:center;
   align-items:flex-start;
-  gap:40px;
-  flex-wrap:nowrap;
+  gap:50px;
   width:100%;
-  max-width:900px;
   margin:0 auto;
 ">
 
-<!-- ===================== MAYA (SINISTRA) ===================== -->
-<div style="width:340px; height:340px;">
-<svg width="100%" height="100%" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
+<!-- ===================== MAYA (TONY VERSIONE) ===================== -->
+<svg width="360" height="360" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
 
 <style>
-.runebtn{cursor:pointer;}
-.runebtn:hover .rune{stroke:#9c3a1d;}
-.runebtn.selected .rune{stroke:#1d7a5c;}
-
 .rune{
   fill:none;
   stroke:#1C1A16;
@@ -28,51 +19,52 @@
   stroke-linejoin:round;
 }
 
-.dot{fill:#1C1A16;}
-
-.stone-ring{fill:none;stroke:#1C1A16;stroke-width:10;opacity:0.25;}
-.crack{fill:none;stroke:#3D3A33;stroke-width:2;opacity:0.35;stroke-dasharray:3 6;}
+.stone{fill:none;stroke:#1C1A16;stroke-width:12;opacity:0.22;}
+.inner{fill:none;stroke:#3D3A33;stroke-width:2;opacity:0.35;stroke-dasharray:4 10;}
+.crack{fill:none;stroke:#2b2622;stroke-width:2;opacity:0.4;}
 </style>
 
-<circle cx="340" cy="340" r="250" class="stone-ring"/>
-<circle cx="340" cy="340" r="190" fill="none" stroke="#3D3A33" stroke-width="2" opacity="0.3" stroke-dasharray="6 12"/>
+<!-- CERCHIO MAYA PIÙ “ANTICO INCISO” -->
+<circle cx="340" cy="340" r="250" class="stone"/>
+<circle cx="340" cy="340" r="210" class="inner"/>
 
-<path class="crack" d="M340 90 L360 160 L320 230 L350 300 L330 380 L360 470"/>
-<path class="crack" d="M160 340 L240 320 L310 360 L400 330 L520 350"/>
-<path class="crack" d="M220 160 L280 210 L260 280 L300 340 L270 420"/>
+<!-- CREPE PIÙ NATURALI (STILE PIETRA VERA) -->
+<path class="crack" d="M340 80 L360 150 L330 220 L350 310 L320 410 L360 520"/>
+<path class="crack" d="M150 340 L240 300 L320 350 L420 320 L520 360"/>
+<path class="crack" d="M240 180 L280 240 L260 320 L310 380"/>
 
 </svg>
-</div>
 
-<!-- ===================== NURAGICO (DESTRA) ===================== -->
-<div style="width:340px; height:340px;">
-<svg width="100%" height="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<!-- ===================== NURAGICO ===================== -->
+<svg width="360" height="360" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
 
 <style>
-.runebtn{cursor:pointer;}
-.runebtn:hover .rune{stroke:#9c3a1d;}
-.runebtn.selected .rune{stroke:#1d7a5c;}
+.rune{
+  fill:none;
+  stroke:#1C1A16;
+  stroke-width:6;
+}
 
-.rune{fill:none;stroke:#1C1A16;stroke-width:6;}
-.dot{fill:#1C1A16;}
+.wall{
+  fill:none;
+  stroke:#1C1A16;
+  stroke-width:7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
 </style>
 
-<!-- CINTA NURAGICA -->
-<path d="
+<!-- CINTA NURAGICA SCURA -->
+<path class="wall" d="
 M 190 210
 C 210 140, 250 110, 300 100
 C 360 90, 410 95, 440 100
 C 470 140, 480 210, 430 260
 C 380 300, 300 310, 190 210
 Z
-"
-fill="none"
-stroke="#1C1A16"
-stroke-width="6"
-stroke-linecap="round"
-stroke-linejoin="round"/>
+"/>
 
-<!-- SLOT A -->
+<!-- SLOT -->
 <g onclick="posiziona('A')">
   <circle cx="340" cy="200" r="70" fill="#EDE8DC" stroke="#3D3A33"/>
   <text x="340" y="148" text-anchor="middle">A</text>
@@ -104,6 +96,5 @@ stroke-linejoin="round"/>
 </g>
 
 </svg>
-</div>
 
 </div>
