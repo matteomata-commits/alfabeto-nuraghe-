@@ -1,109 +1,145 @@
-<!-- ===================== CONTAINER SUPERIORE (FIX AFFIANCAMENTO) ===================== -->
-<div style="
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:flex-start;
-  gap:40px;
-  flex-wrap:nowrap;
-  width:100%;
-  max-width:900px;
-  margin:0 auto;
-">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DEMOCODEX</title>
+</head>
 
-<!-- ===================== MAYA (SINISTRA) ===================== -->
-<div style="width:340px; height:340px;">
-<svg width="100%" height="100%" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
+<body style="background-color:#F4F0E6 !important; font-family:serif; text-align:center; margin-top:30px;">
 
+<h2>DEMOCODEX</h2>
+
+<p style="color:#555; font-size:14px;">1. scegli una runa &nbsp; → &nbsp; 2. tocca il vano dove vuoi inserirla</p>
+
+<!-- COMPLESSO: 5 VANI -->
+<svg width="340" height="340" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" style="touch-action:manipulation;">
 <style>
-.runebtn{cursor:pointer;}
-.runebtn:hover .rune{stroke:#9c3a1d;}
-.runebtn.selected .rune{stroke:#1d7a5c;}
-
-.rune{
-  fill:none;
-  stroke:#1C1A16;
-  stroke-width:6;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.dot{fill:#1C1A16;}
-
-.stone-ring{fill:none;stroke:#1C1A16;stroke-width:10;opacity:0.25;}
-.crack{fill:none;stroke:#3D3A33;stroke-width:2;opacity:0.35;stroke-dasharray:3 6;}
+.slotstone{fill:#EDE8DC;stroke:#3D3A33;stroke-width:1.4;cursor:pointer;}
+.slotstone.filled{fill:#E4DCC8;}
+.slotlabel{font-family:serif;font-size:13px;fill:#3D3A33;}
+.slotglyph{fill:none;stroke:#1C1A16;stroke-width:5;stroke-linecap:square;}
+.slotglyph.empty{opacity:0.15;}
+.conn{stroke:#3D3A33;stroke-width:1;opacity:0.5;fill:none;}
 </style>
 
-<circle cx="340" cy="340" r="250" class="stone-ring"/>
-<circle cx="340" cy="340" r="190" fill="none" stroke="#3D3A33" stroke-width="2" opacity="0.3" stroke-dasharray="6 12"/>
+<line class="conn" x1="190" y1="210" x2="300" y2="120"/>
+<line class="conn" x1="300" y1="120" x2="340" y2="200"/>
+<line class="conn" x1="440" y1="100" x2="340" y2="200"/>
+<line class="conn" x1="430" y1="260" x2="340" y2="200"/>
+<line class="conn" x1="190" y1="210" x2="340" y2="200"/>
 
-<path class="crack" d="M340 90 L360 160 L320 230 L350 300 L330 380 L360 470"/>
-<path class="crack" d="M160 340 L240 320 L310 360 L400 330 L520 350"/>
-<path class="crack" d="M220 160 L280 210 L260 280 L300 340 L270 420"/>
-
-</svg>
-</div>
-
-<!-- ===================== NURAGICO (DESTRA) ===================== -->
-<div style="width:340px; height:340px;">
-<svg width="100%" height="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
-
-<style>
-.runebtn{cursor:pointer;}
-.runebtn:hover .rune{stroke:#9c3a1d;}
-.runebtn.selected .rune{stroke:#1d7a5c;}
-
-.rune{fill:none;stroke:#1C1A16;stroke-width:6;}
-.dot{fill:#1C1A16;}
-</style>
-
-<!-- CINTA NURAGICA -->
-<path d="
-M 190 210
-C 210 140, 250 110, 300 100
-C 360 90, 410 95, 440 100
-C 470 140, 480 210, 430 260
-C 380 300, 300 310, 190 210
-Z
-"
-fill="none"
-stroke="#1C1A16"
-stroke-width="6"
-stroke-linecap="round"
-stroke-linejoin="round"/>
-
-<!-- SLOT A -->
-<g onclick="posiziona('A')">
-  <circle cx="340" cy="200" r="70" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text x="340" y="148" text-anchor="middle">A</text>
-  <g id="glyph-A" transform="translate(340,200)"></g>
+<g class="slot" id="slot-A" data-letter="A" onclick="posiziona('A')">
+  <circle class="slotstone" cx="340" cy="200" r="70"/>
+  <text class="slotlabel" x="340" y="148" text-anchor="middle">A</text>
+  <g id="glyph-A" class="slotglyph empty" transform="translate(340,200)"></g>
 </g>
 
-<g onclick="posiziona('B')">
-  <circle cx="190" cy="210" r="52" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text x="190" y="168" text-anchor="middle">B</text>
-  <g id="glyph-B" transform="translate(190,210)"></g>
+<g class="slot" id="slot-B" data-letter="B" onclick="posiziona('B')">
+  <circle class="slotstone" cx="190" cy="210" r="52"/>
+  <text class="slotlabel" x="190" y="168" text-anchor="middle">B</text>
+  <g id="glyph-B" class="slotglyph empty" transform="translate(190,210)"></g>
 </g>
 
-<g onclick="posiziona('C')">
-  <circle cx="300" cy="100" r="42" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text x="300" y="66" text-anchor="middle">C</text>
-  <g id="glyph-C" transform="translate(300,100)"></g>
+<g class="slot" id="slot-C" data-letter="C" onclick="posiziona('C')">
+  <circle class="slotstone" cx="300" cy="100" r="42"/>
+  <text class="slotlabel" x="300" y="66" text-anchor="middle">C</text>
+  <g id="glyph-C" class="slotglyph empty" transform="translate(300,100)"></g>
 </g>
 
-<g onclick="posiziona('D')">
-  <circle cx="440" cy="100" r="48" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text x="440" y="62" text-anchor="middle">D</text>
-  <g id="glyph-D" transform="translate(440,100)"></g>
+<g class="slot" id="slot-D" data-letter="D" onclick="posiziona('D')">
+  <circle class="slotstone" cx="440" cy="100" r="48"/>
+  <text class="slotlabel" x="440" y="62" text-anchor="middle">D</text>
+  <g id="glyph-D" class="slotglyph empty" transform="translate(440,100)"></g>
 </g>
 
-<g onclick="posiziona('E')">
-  <circle cx="430" cy="260" r="40" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text x="430" y="228" text-anchor="middle">E</text>
-  <g id="glyph-E" transform="translate(430,260)"></g>
+<g class="slot" id="slot-E" data-letter="E" onclick="posiziona('E')">
+  <circle class="slotstone" cx="430" cy="260" r="40"/>
+  <text class="slotlabel" x="430" y="228" text-anchor="middle">E</text>
+  <g id="glyph-E" class="slotglyph empty" transform="translate(430,260)"></g>
 </g>
 
 </svg>
-</div>
 
-</div>
+<br>
+
+<!-- SELETTORE RUNE -->
+<svg width="300" height="300" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" style="touch-action:manipulation; margin-top:10px;">
+<style>
+.stone{fill:#EDE8DC;stroke:#3D3A33;stroke-width:1.4;}
+.rune{fill:none;stroke:#1C1A16;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;}
+.dot{fill:#1C1A16;}
+.ringline{fill:none;stroke:#3D3A33;stroke-width:1;opacity:0.5;}
+.runebtn{cursor:pointer;}
+.runebtn:hover .rune{stroke:#9c3a1d;}
+.runebtn:hover .dot{fill:#9c3a1d;}
+.runebtn.selected .rune{stroke:#1d7a5c;}
+.runebtn.selected .dot{fill:#1d7a5c;}
+</style>
+
+<circle cx="340" cy="340" r="300" fill="#F4F0E6"/>
+
+<path class="stone" d="M340,50
+c14,-2 22,10 36,8 c16,-2 20,16 34,18 c18,2 24,18 36,28 c14,12 10,30 18,42 c10,16 26,18 30,36 c4,18 -8,30 -6,46 c2,18 18,28 14,46 c-4,18 -22,18 -28,34 c-6,16 6,32 -4,46 c-10,14 -28,8 -42,16 c-14,8 -16,26 -32,30 c-16,4 -28,-10 -44,-10 c-16,0 -28,14 -44,10 c-16,-4 -18,-22 -32,-30 c-14,-8 -32,-2 -42,-16 c-10,-14 2,-30 -4,-46 c-6,-16 -24,-16 -28,-34 c-4,-18 12,-28 14,-46 c2,-18 -8,-20 2,-36 c8,-12 24,-14 34,-26 c12,-14 8,-32 22,-44 c12,-10 16,-28 32,-32 c14,-4 18,-14 30,-16 Z" />
+
+<circle class="ringline" cx="340" cy="340" r="252"/>
+
+<g class="dot">
+<circle cx="340" cy="92" r="4"/><circle cx="478" cy="130" r="4"/><circle cx="568" cy="240" r="4"/>
+<circle cx="588" cy="380" r="4"/><circle cx="528" cy="500" r="4"/><circle cx="408" cy="572" r="4"/>
+<circle cx="272" cy="572" r="4"/><circle cx="152" cy="500" r="4"/><circle cx="92" cy="380" r="4"/>
+<circle cx="112" cy="240" r="4"/><circle cx="202" cy="130" r="4"/>
+</g>
+
+<g class="runebtn" id="pick-A" onclick="seleziona('A')" transform="translate(340,156)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent"/>
+<path class="rune" d="M-16,-26 L16,-26 L16,-6 L-16,-6 L-16,14 L16,14 M-16,14 L-16,26"/>
+<circle class="dot" cx="0" cy="-16" r="3.5"/><circle class="dot" cx="0" cy="4" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-B" onclick="seleziona('B')" transform="translate(456,210) rotate(60)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-60)"/>
+<path class="rune" d="M-18,-24 L0,-24 L0,0 L18,0 L18,24 M-18,24 L-18,0 L0,0"/>
+<circle class="dot" cx="-9" cy="-12" r="3.5"/><circle class="dot" cx="9" cy="12" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-C" onclick="seleziona('C')" transform="translate(524,340) rotate(90)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-90)"/>
+<path class="rune" d="M-18,-24 L-18,24 M-18,-24 L18,-24 M-18,0 L14,0 M-18,24 L18,24"/>
+<circle class="dot" cx="6" cy="-24" r="3.5"/><circle class="dot" cx="2" cy="0" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-D" onclick="seleziona('D')" transform="translate(456,470) rotate(120)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-120)"/>
+<path class="rune" d="M-18,-24 L18,-24 L18,0 L-18,0 L-18,24 L18,24"/>
+<circle class="dot" cx="0" cy="-12" r="3.5"/><circle class="dot" cx="0" cy="12" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-E" onclick="seleziona('E')" transform="translate(340,524) rotate(180)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-180)"/>
+<path class="rune" d="M-16,-26 L16,-26 L16,-6 L-16,-6 L-16,14 L16,14 M-16,14 L-16,26"/>
+<circle class="dot" cx="0" cy="-16" r="3.5"/><circle class="dot" cx="0" cy="4" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-F" onclick="seleziona('F')" transform="translate(224,470) rotate(240)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-240)"/>
+<path class="rune" d="M-18,-24 L0,-24 L0,0 L18,0 L18,24 M-18,24 L-18,0 L0,0"/>
+<circle class="dot" cx="-9" cy="-12" r="3.5"/><circle class="dot" cx="9" cy="12" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-G" onclick="seleziona('G')" transform="translate(156,340) rotate(270)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-270)"/>
+<path class="rune" d="M-18,-24 L-18,24 M-18,-24 L18,-24 M-18,0 L14,0 M-18,24 L18,24"/>
+<circle class="dot" cx="6" cy="-24" r="3.5"/><circle class="dot" cx="2" cy="0" r="3.5"/>
+</g>
+
+<g class="runebtn" id="pick-H" onclick="seleziona('H')" transform="translate(224,210) rotate(300)">
+<rect x="-30" y="-40" width="60" height="80" fill="transparent" transform="rotate(-300)"/>
+<path class="rune" d="M-18,-24 L18,-24 L18,0 L-18,0 L-18,24 L18,24"/>
+<circle class="dot" cx="0" cy="-12" r="3.5"/><circle class="dot" cx="0" cy="12" r="3.5"/>
+</g>
+
+<circle cx="340" cy="340" r="118" fill="#E4DCC8" stroke="#3D3A33" stroke-width="1.4"/>
+<circle cx="340" cy="340" r="92" fill="none" stroke="#3D3A33" stroke-width="0.6" opacity="0.5"/>
+
+<g class="runebtn" id="pick-I" onclick="seleziona('I')">
+<rect x="250" y="290" width="180"
