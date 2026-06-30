@@ -3,175 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <title>DEMOCODEX</title>
-</head>
-
-<body style="background:#F4F0E6; font-family:serif; text-align:center; margin-top:20px;">
-
-<h2>DEMOCODEX</h2>
-
-<p style="color:#555;">1. scegli una runa → 2. inseriscila</p>
-
-<div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
-
-<!-- ===================== RUOTA 9 RUNE ===================== -->
-<svg width="420" height="420" viewBox="0 0 680 680">
 
 <style>
-.runeBtn { cursor:pointer; }
-
-.hit {
-  fill: rgba(28,26,22,0.06);
-  stroke: rgba(28,26,22,0.25);
-  stroke-width:2;
+body {
+  margin: 0;
+  background: #F4F0E6;
+  font-family: serif;
+  text-align: center;
 }
 
-.rune {
-  fill:none;
-  stroke:#1C1A16;
-  stroke-width:6;
+h2 { margin: 20px 0 5px; }
+
+#wrap {
+  position: relative;
+  width: 1400px;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* immagine base */
+#base {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* overlay SVG sopra immagine */
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* rune */
+.runeBtn {
+  cursor: pointer;
+}
+
+.hit {
+  fill: rgba(0,0,0,0.01);
+  stroke: rgba(0,0,0,0.2);
+  stroke-width: 2;
 }
 
 .runeBtn:hover .hit {
-  fill: rgba(156,58,29,0.10);
+  fill: rgba(156,58,29,0.12);
 }
 
 .runeBtn.selected .hit {
-  fill: rgba(29,122,93,0.18);
-  stroke:#1d7a5c;
+  fill: rgba(29,122,93,0.20);
+  stroke: #1d7a5c;
 }
 </style>
+</head>
 
-<!-- cerchi stile antico -->
-<circle cx="340" cy="340" r="310" fill="none" stroke="#3D3A33" stroke-width="6"/>
-<circle cx="340" cy="340" r="250" fill="none" stroke="#3D3A33" stroke-width="2" opacity="0.5"/>
-<circle cx="340" cy="340" r="180" fill="none" stroke="#3D3A33" stroke-width="1" opacity="0.4"/>
+<body>
 
-<!-- ===================== 9 RUNE (TUTTE IDENTICHE COME STRUTTURA) ===================== -->
+<h2>DEMOCODEX</h2>
 
-<g id="rune-A" class="runeBtn" onclick="selectRune('A')" transform="translate(340,110)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-16,-26 L16,-26 L16,-6 L-16,-6 L-16,14 L16,14"/></g>
-</g>
+<div id="wrap">
 
-<g id="rune-B" class="runeBtn" onclick="selectRune('B')" transform="translate(500,170)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-18,-24 L0,-24 L0,0 L18,0 L18,24"/></g>
-</g>
+  <!-- ================= IMMAGINE BASE ================= -->
+  <img id="base" src="Interfaccia mistica DEMOCODEX interattiva.png">
 
-<g id="rune-C" class="runeBtn" onclick="selectRune('C')" transform="translate(580,340)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-18,-24 L-18,24 M-18,-24 L18,-24 M-18,0 L14,0"/></g>
-</g>
+  <!-- ================= OVERLAY ================= -->
+  <svg id="overlay" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid meet">
 
-<g id="rune-D" class="runeBtn" onclick="selectRune('D')" transform="translate(500,510)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-18,-24 L18,-24 L18,0 L-18,0 L-18,24 L18,24"/></g>
-</g>
+    <script>
+      let selectedRune = null;
 
-<g id="rune-E" class="runeBtn" onclick="selectRune('E')" transform="translate(340,570)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-16,-26 L16,-26 L16,-6 L-16,-6 L-16,14 L16,14"/></g>
-</g>
+      function selectRune(id){
+        selectedRune = id;
 
-<g id="rune-F" class="runeBtn" onclick="selectRune('F')" transform="translate(180,510)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-18,-24 L0,-24 L0,0 L18,0 L18,24"/></g>
-</g>
+        document.querySelectorAll('.runeBtn').forEach(e => e.classList.remove('selected'));
+        document.getElementById('rune-' + id).classList.add('selected');
+      }
 
-<g id="rune-G" class="runeBtn" onclick="selectRune('G')" transform="translate(100,340)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-18,-24 L-18,24 M-18,-24 L18,-24 M-18,0 L14,0"/></g>
-</g>
+      function placeRune(slot){
+        if(!selectedRune) return;
 
-<g id="rune-H" class="runeBtn" onclick="selectRune('H')" transform="translate(180,170)">
-  <circle class="hit" r="55"></circle>
-  <g class="rune"><path d="M-18,-24 L18,-24 L18,0 L-18,0 L-18,24 L18,24"/></g>
-</g>
+        const source = document.querySelector('#rune-' + selectedRune + ' .symbol');
+        const target = document.getElementById('slot-' + slot);
 
-<g id="rune-I" class="runeBtn" onclick="selectRune('I')" transform="translate(340,340)">
-  <circle class="hit" r="65"></circle>
-  <g class="rune"><path d="M0,-26 L0,26 M-20,0 L20,0"/></g>
-</g>
+        if(!source || !target) return;
 
-</svg>
+        target.innerHTML = "";
 
-<!-- ===================== SLOT 5 INSIEMI ===================== -->
-<svg width="420" height="420" viewBox="0 0 680 680">
+        const clone = source.cloneNode(true);
+        clone.setAttribute("transform","scale(0.85)");
 
-<style>
-.slotLabel {
-  font-size:34px;
-  font-family:serif;
-  fill:#3D3A33;
-  pointer-events:none;
-}
-</style>
+        target.appendChild(clone);
+      }
+    </script>
 
-<g onclick="placeRune('A')">
-  <circle cx="440" cy="340" r="70" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text id="label-A" class="slotLabel" x="440" y="354" text-anchor="middle">A</text>
-  <g id="slot-A" transform="translate(440,340)"></g>
-</g>
+    <!-- ================= 9 RUNE ================= -->
 
-<g onclick="placeRune('B')">
-  <circle cx="280" cy="200" r="55" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text id="label-B" class="slotLabel" x="280" y="214" text-anchor="middle">B</text>
-  <g id="slot-B" transform="translate(280,200)"></g>
-</g>
+    <g id="rune-A" class="runeBtn" onclick="selectRune('A')" transform="translate(340,230)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-14,-22 L14,-22 L14,-6 L-14,-6 L-14,12 L14,12"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
 
-<g onclick="placeRune('C')">
-  <circle cx="540" cy="220" r="55" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text id="label-C" class="slotLabel" x="540" y="234" text-anchor="middle">C</text>
-  <g id="slot-C" transform="translate(540,220)"></g>
-</g>
+    <g id="rune-B" class="runeBtn" onclick="selectRune('B')" transform="translate(520,170)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-16,-20 L0,-20 L0,0 L16,0 L16,20"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
 
-<g onclick="placeRune('D')">
-  <circle cx="280" cy="520" r="55" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text id="label-D" class="slotLabel" x="280" y="534" text-anchor="middle">D</text>
-  <g id="slot-D" transform="translate(280,520)"></g>
-</g>
+    <g id="rune-C" class="runeBtn" onclick="selectRune('C')" transform="translate(600,340)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-16,-20 L-16,20 M-16,-20 L16,-20 M-16,0 L12,0"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
 
-<g onclick="placeRune('E')">
-  <circle cx="540" cy="520" r="55" fill="#EDE8DC" stroke="#3D3A33"/>
-  <text id="label-E" class="slotLabel" x="540" y="534" text-anchor="middle">E</text>
-  <g id="slot-E" transform="translate(540,520)"></g>
-</g>
+    <g id="rune-D" class="runeBtn" onclick="selectRune('D')" transform="translate(520,510)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-16,-20 L16,-20 L16,0 L-16,0 L-16,20 L16,20"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
 
-</svg>
+    <g id="rune-E" class="runeBtn" onclick="selectRune('E')" transform="translate(340,580)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-14,-22 L14,-22 L14,-6 L-14,-6 L-14,12 L14,12"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
+
+    <g id="rune-F" class="runeBtn" onclick="selectRune('F')" transform="translate(160,510)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-16,-20 L0,-20 L0,0 L16,0 L16,20"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
+
+    <g id="rune-G" class="runeBtn" onclick="selectRune('G')" transform="translate(80,340)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-16,-20 L-16,20 M-16,-20 L16,-20 M-16,0 L12,0"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
+
+    <g id="rune-H" class="runeBtn" onclick="selectRune('H')" transform="translate(160,170)">
+      <circle class="hit" r="45"/>
+      <g class="symbol">
+        <path d="M-16,-20 L16,-20 L16,0 L-16,0 L-16,20 L16,20"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
+
+    <g id="rune-I" class="runeBtn" onclick="selectRune('I')" transform="translate(340,340)">
+      <circle class="hit" r="55"/>
+      <g class="symbol">
+        <path d="M0,-20 L0,20 M-18,0 L18,0"
+              fill="none" stroke="#1C1A16" stroke-width="5"/>
+      </g>
+    </g>
+
+    <!-- ================= SLOT ================= -->
+
+    <g onclick="placeRune('A')">
+      <circle cx="1100" cy="330" r="60" fill="transparent"/>
+      <g id="slot-A"></g>
+    </g>
+
+    <g onclick="placeRune('B')">
+      <circle cx="980" cy="250" r="55" fill="transparent"/>
+      <g id="slot-B"></g>
+    </g>
+
+    <g onclick="placeRune('C')">
+      <circle cx="1220" cy="250" r="55" fill="transparent"/>
+      <g id="slot-C"></g>
+    </g>
+
+    <g onclick="placeRune('D')">
+      <circle cx="980" cy="450" r="55" fill="transparent"/>
+      <g id="slot-D"></g>
+    </g>
+
+    <g onclick="placeRune('E')">
+      <circle cx="1220" cy="450" r="55" fill="transparent"/>
+      <g id="slot-E"></g>
+    </g>
+
+  </svg>
 
 </div>
-
-<script>
-let selectedRune = null;
-
-function selectRune(id){
-  selectedRune = id;
-
-  document.querySelectorAll('.runeBtn').forEach(e => e.classList.remove('selected'));
-  document.getElementById('rune-' + id).classList.add('selected');
-}
-
-function placeRune(slot){
-  if(!selectedRune) return;
-
-  const sourceGroup = document.getElementById('rune-' + selectedRune)
-                              .querySelector('.rune');
-
-  const target = document.getElementById('slot-' + slot);
-
-  if(!sourceGroup || !target) return;
-
-  target.innerHTML = "";
-
-  const clone = sourceGroup.cloneNode(true);
-  clone.setAttribute("transform","scale(0.8)");
-
-  target.appendChild(clone);
-
-  const label = document.getElementById('label-' + slot);
-  if(label) label.style.display = "none";
-}
-</script>
 
 </body>
 </html>
