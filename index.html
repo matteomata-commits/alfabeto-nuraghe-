@@ -15,7 +15,7 @@
 
 <div style="display:flex; justify-content:center; align-items:flex-start; gap:30px; flex-wrap:wrap;">
 
-<!-- ===================== RUOTA DELLE RUNE (sinistra) ===================== -->
+<!-- ===================== RUOTA DELLE RUNE ===================== -->
 <svg width="380" height="380" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
 
 <style>
@@ -28,6 +28,7 @@
 
 <!-- A -->
 <g id="pick-A" class="runebtn" onclick="seleziona('A')" transform="translate(340,156)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-16,-26 L16,-26 L16,-6 L-16,-6 L-16,14 L16,14"/>
 <circle class="dot" cx="0" cy="-16" r="3.5"/>
 <circle class="dot" cx="0" cy="4" r="3.5"/>
@@ -35,6 +36,7 @@
 
 <!-- B -->
 <g id="pick-B" class="runebtn" onclick="seleziona('B')" transform="translate(456,210)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-18,-24 L0,-24 L0,0 L18,0 L18,24"/>
 <circle class="dot" cx="-9" cy="-12" r="3.5"/>
 <circle class="dot" cx="9" cy="12" r="3.5"/>
@@ -42,6 +44,7 @@
 
 <!-- C -->
 <g id="pick-C" class="runebtn" onclick="seleziona('C')" transform="translate(524,340)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-18,-24 L-18,24 M-18,-24 L18,-24 M-18,0 L14,0"/>
 <circle class="dot" cx="6" cy="-24" r="3.5"/>
 <circle class="dot" cx="2" cy="0" r="3.5"/>
@@ -49,6 +52,7 @@
 
 <!-- D -->
 <g id="pick-D" class="runebtn" onclick="seleziona('D')" transform="translate(456,470)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-18,-24 L18,-24 L18,0 L-18,0 L-18,24 L18,24"/>
 <circle class="dot" cx="0" cy="-12" r="3.5"/>
 <circle class="dot" cx="0" cy="12" r="3.5"/>
@@ -56,6 +60,7 @@
 
 <!-- E -->
 <g id="pick-E" class="runebtn" onclick="seleziona('E')" transform="translate(340,524)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-16,-26 L16,-26 L16,-6 L-16,-6 L-16,14 L16,14"/>
 <circle class="dot" cx="0" cy="-16" r="3.5"/>
 <circle class="dot" cx="0" cy="4" r="3.5"/>
@@ -63,6 +68,7 @@
 
 <!-- F -->
 <g id="pick-F" class="runebtn" onclick="seleziona('F')" transform="translate(224,470)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-18,-24 L0,-24 L0,0 L18,0 L18,24"/>
 <circle class="dot" cx="-9" cy="-12" r="3.5"/>
 <circle class="dot" cx="9" cy="12" r="3.5"/>
@@ -70,6 +76,7 @@
 
 <!-- G -->
 <g id="pick-G" class="runebtn" onclick="seleziona('G')" transform="translate(156,340)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-18,-24 L-18,24 M-18,-24 L18,-24 M-18,0 L14,0"/>
 <circle class="dot" cx="6" cy="-24" r="3.5"/>
 <circle class="dot" cx="2" cy="0" r="3.5"/>
@@ -77,6 +84,7 @@
 
 <!-- H -->
 <g id="pick-H" class="runebtn" onclick="seleziona('H')" transform="translate(224,210)">
+<circle cx="0" cy="0" r="30" fill="transparent"></circle>
 <path class="rune" d="M-18,-24 L18,-24 L18,0 L-18,0 L-18,24 L18,24"/>
 <circle class="dot" cx="0" cy="-12" r="3.5"/>
 <circle class="dot" cx="0" cy="12" r="3.5"/>
@@ -84,65 +92,13 @@
 
 </svg>
 
-<!-- ===================== RUOTA DEI VANI / LETTERE (destra) ===================== -->
+<!-- ===================== SLOT ===================== -->
 <svg width="380" height="380" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
 
 <style>
 .slotstone{fill:#EDE8DC;stroke:#3D3A33;stroke-width:1.4;cursor:pointer;}
-.slotglyph{fill:none;stroke:#1C1A16;stroke-width:5;stroke-linecap:square;}
-.slotglyph.empty{opacity:0.15;}
-.slotlabel{font-family:serif; font-size:34px; font-weight:bold; fill:#3D3A33; pointer-events:none; user-select:none;}
+.slotlabel{font-family:serif; font-size:34px; font-weight:bold; fill:#3D3A33; pointer-events:none;}
 </style>
-
-<!-- ===================== MURO DI CINTA NURAGICO ===================== -->
-
-<!-- ombra interna -->
-<path d="
-M 290 360
-C 310 290, 350 260, 400 250
-C 460 240, 510 245, 540 250
-C 570 290, 580 360, 530 410
-C 480 450, 400 460, 290 360
-Z
-"
-fill="none"
-stroke="#3D3A33"
-stroke-width="2"
-opacity="0.6"
-stroke-linejoin="round"
-/>
-
-<!-- muro principale -->
-<path d="
-M 290 360
-C 310 290, 350 260, 400 250
-C 460 240, 510 245, 540 250
-C 570 290, 580 360, 530 410
-C 480 450, 400 460, 290 360
-Z
-"
-fill="none"
-stroke="#1C1A16"
-stroke-width="6"
-stroke-linejoin="round"
-stroke-linecap="round"
-/>
-
-<!-- texture archeologica -->
-<path d="
-M 290 360
-C 310 290, 350 260, 400 250
-C 460 240, 510 245, 540 250
-C 570 290, 580 360, 530 410
-C 480 450, 400 460, 290 360
-Z
-"
-fill="none"
-stroke="#000"
-stroke-width="1"
-stroke-dasharray="2 8"
-opacity="0.15"
-/>
 
 <!-- SLOT A -->
 <g onclick="posiziona('A')">
